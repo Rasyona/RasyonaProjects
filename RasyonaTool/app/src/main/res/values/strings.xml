@@ -10,5 +10,155 @@
         <item>Alarms</item>
     </string-array>
 
+    <string-array name="calisanlar">
+        <item>Anıl Çakmak</item>
+        <item>Oğuz Çakmaklıoğlu</item>
+        <item>Tuğçe Aparı</item>
+        <item>Berkay Bankoğlu</item>
+        <item>Hüseyin Gürcan</item>
+        <item>Yasin Uzun</item>
+        <item>Betül Reyhan</item>
+        <item>Meltem Al</item>
+        <item>İlyas Doğan</item>
+        <item>Onur Yılmaz</item>
+        <item>Deniz Usta</item>
+        <item>Hale Genç</item>
+        <item>Ünal Ateş</item>
+        <item>Furkan Barlas</item>
+        <item>Halil Yıldız</item>
+        <item>Oğuzhan Şengür</item>
+        <item>Faruk Üstün</item>
+        <item>Ufuk Çelik</item>
+    </string-array>
+
+    <string-array name="devices">
+        <item>10.50.50.22 (BDB.boyner.trk)</item>
+        <item>192.168.8.10</item>
+        <item>192.168.8.11</item>
+        <item>192.168.8.2</item>
+        <item>192.168.8.205</item>
+        <item>192.168.8.40</item>
+        <item>Aymarka_AED</item>
+        <item>Aymarka_AED_Ping</item>
+        <item>Backup_Saprouter</item>
+        <item>beymen.com</item>
+        <item>Beymen_Portal</item>
+        <item>Beymen_Solman</item>
+        <item>bhexoem</item>
+        <item>Boyner_PO_DEV</item>
+        <item>bynrdw</item>
+        <item>DNS: bhdc01</item>
+        <item>DNS: google-public-dns-b</item>
+        <item>ExaData_Node1</item>
+        <item>ExaData_Node2</item>
+        <item>ExaData_Node3</item>
+        <item>ExaData_Node4</item>
+        <item>Gateway: 192.168.8.1</item>
+        <item>GECE_SERVER</item>
+        <item>HB WWW</item>
+        <item>HEPSIBURADA_SOLMAN</item>
+        <item>Internet</item>
+        <item>NPI08BA2F</item>
+        <item>onuryılmaz</item>
+        <item>Probe Device</item>
+        <item>Rasyona_Linux</item>
+        <item>Rasyona_Saprouter_3299</item>
+        <item>RASYONA_SERVER (Device)</item>
+        <item>RASYONAHD</item>
+    </string-array>
+
+    <string-array name="manipulation">
+        <item>Seçiniz</item>
+        <item>Nesne Ayarlarını Değiştirme</item>
+        <item>Durdurma/Devam Ettirme</item>
+        <item>Hata Yakalama, Yeniden Tarama</item>
+        <item>Oto Keşfetmeyi Tetikleme</item>
+        <item>Nesneleri Yeniden Konumlandırma</item>
+        <item>Rapora Nesne Ekleme</item>
+        <item>Bildirimi Test Etme</item>
+        <item>Nesne Ekleme/Silme</item>
+        <item>Lokasyonu Ayarlama</item>
+    </string-array>
+
+    <string-array name="nesne_ayarlarini_degistirme">
+        <item>Seçiniz</item>
+        <item>Nesnenin İsmini Değiştir</item>
+        <item>Priority Ayarla</item>
+        <item>Property Değiştir</item>
+    </string-array>
+
+    <string-array name="priority_ayarla">
+        <item>Seçiniz</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="property_degistir">
+        <item>Seçiniz</item>
+        <item>Cihaz Adı</item>
+        <item>Tagler</item>
+        <item>URL</item>
+    </string-array>
+
+    <string-array name="durdurma_devam_ettirme">
+        <item>Seçiniz</item>
+        <item>Nesne/Sensör Durdur</item>
+        <item>Nesne/Sensör Durdur(Belirli Süre)</item>
+        <item>Bir Sensörün Hata Durumunu Simule Et</item>
+        <item>Nesne/Sensör Devam Ettir</item>
+    </string-array>
+
+    <string-array name="durdurma_sure">
+        <item>Seçiniz</item>
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>Diğer</item>
+    </string-array>
+
+    <string-array name="oto_kesfetmeyi_tetikleme">
+        <item>Seçiniz</item>
+        <item>Sensörü Tara</item>
+        <item>Oto Keşfetmeyi Çalıştır</item>
+    </string-array>
+
+    <string-array name="nesneleri_yeniden_konumlandirma">
+        <item>Seçiniz</item>
+        <item>Yukarı</item>
+        <item>Aşağı</item>
+        <item>En Yukarı</item>
+        <item>En Aşağı</item>
+    </string-array>
+
+    <string-array name="rapora_sensor_ekleme">
+        <item>Seçiniz</item>
+        <item>Tüm Sensörler İçin Özet Rapor</item>
+        <item>Top 100 Kullanımda/Boşta İşlemci Sensörleri</item>
+        <item>Top 100 En Hızlı/Yavaş HTTP Sensörleri</item>
+        <item>Top 100 En Hızlı/Yavaş PING Sensörleri</item>
+        <item>Top 100 Boş/Dolu Disk Alanı Sensörleri</item>
+        <item>Top 100 En Çok/Az Kullanılan Bant Genişliği Sensörleri</item>
+        <item>Top 100 En Çok/Az Kullanılan Bellek Sensörleri</item>
+        <item>Top 100 Çalışma/Çalışmama Zamanı Sensörleri</item>
+    </string-array>
+
+    <string-array name="nesne_ekleme_silme">
+        <item>Seçiniz</item>
+        <item>Nesne Ekleme</item>
+        <item>Nesne Silme</item>
+    </string-array>
+
+    <string-array name="nesne_ekleme">
+        <item>Seçiniz</item>
+        <item>Bir Grubu Kopyala</item>
+        <item>Bir Cihazı Kopyala</item>
+        <item>Bir Sensörü Kopyala</item>
+    </string-array>
+
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

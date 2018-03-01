@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/yenile"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:title="Listeyi Yenile"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/cikis"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Hesaptan Çık"
+        app:showAsAction="always" />
+</menu>

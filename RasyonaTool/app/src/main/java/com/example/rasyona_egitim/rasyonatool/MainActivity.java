@@ -3,8 +3,6 @@ package com.example.rasyona_egitim.rasyonatool;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,8 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ScrollView;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import com.example.rasyona_egitim.PRTG.Devices;
+import com.example.rasyona_egitim.PRTG.Manipulation;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -29,22 +30,37 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.xpath.XPathExpressionException;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ArrayList<String> device = new ArrayList<>();
+    ArrayList device = new ArrayList();
 
     private String LOG_TAG = "XML";
+    private static String TAG = "ExcelLog";
     private int UpdateFlag = 0;
     TextView nMessages,nAlarms,nClock,nBackGroundTasks,nUpdateAvailability,nVersion,nIsAdminUser;
 
-    public final static String EXTRA_MESSAGE = "com.example.rasyona_egitim.rasyonatool";
+
+    private ArrayList<String> listDataHeader;
+    private HashMap<String, List<String>> listDataChild;
+    private ExpandableListView expListView;
+    private ExpandListAdapter listAdapter;
+    private ArrayList<String> prtgList;
+    private ArrayList<String> fileShareList;
+    private ArrayList<String> reportList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         nMessages = (TextView)findViewById(R.id.yeniMesajlar);
         nAlarms = (TextView)findViewById(R.id.yeniAlarmlar);
@@ -67,8 +83,140 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        enableExpandableList();
+    }
+
+    private void enableExpandableList() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+        expListView = (ExpandableListView) findViewById(R.id.left_drawer);
+
+        prepareListData(listDataHeader, listDataChild);
+        listAdapter = new ExpandListAdapter(this, listDataHeader, listDataChild);
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+
+
+
+
+                return false;
+            }
+        });
+        // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+
+            }
+        });
+
+        // Listview Group collasped listener
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+
+            }
+        });
+
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                // TODO Auto-generated method stub
+
+                final String selected = (String) listAdapter.getChild(groupPosition, childPosition);
+
+                switch (selected){
+
+                    case "Devices":
+
+                        new FetchData().execute();
+
+                        break;
+
+                    case "Alarms":
+                        break;
+
+                    case "Sensors":
+                        break;
+
+                    case "Manipulation":
+
+                        Intent intent = new Intent(MainActivity.this, Manipulation.class);
+                        startActivity(intent);
+
+                        break;
+
+                    case "Resim":
+
+                        Intent intent2 = new Intent(MainActivity.this, ResimYukle.class);
+                        startActivity(intent2);
+
+                        break;
+
+                    case "Pdf":
+
+                        Intent intent3 = new Intent(MainActivity.this, PdfYukle.class);
+                        startActivity(intent3);
+
+                        break;
+
+                    case "Excel":
+
+                        Intent intent4 = new Intent(MainActivity.this,ExcelOlustur.class);
+                        startActivity(intent4);
+
+                        break;
+
+                }
+
+                return true;
+            }
+        });
+    }
+    private void prepareListData(List<String> listDataHeader, Map<String,
+                List<String>> listDataChild) {
+
+
+        // Adding child data
+        listDataHeader.add("PRTG");
+        listDataHeader.add("Dosya Paylaşımı");
+        listDataHeader.add("Raporlama");
+
+        // Adding child data
+        prtgList = new ArrayList<String>();
+        prtgList.add("Devices");
+        prtgList.add("Sensors");
+        prtgList.add("Alarms");
+        prtgList.add("Manipulation");
+
+        fileShareList = new ArrayList<String>();
+        fileShareList.add("Resim");
+        fileShareList.add("Pdf");
+
+        reportList = new ArrayList<String>();
+        reportList.add("Excel");
+
+
+
+        listDataChild.put(listDataHeader.get(0), prtgList); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), fileShareList);
+        listDataChild.put(listDataHeader.get(2), reportList);
+
     }
 
     @Override
@@ -91,18 +239,26 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        int id = item.getItemId();
+        switch (item.getItemId()) {
 
 
-        if (id == R.id.refresh) {
+            case R.id.refresh:
 
-            Intent intent = new Intent(MainActivity.this,MainActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
 
-            return true;
+                return true;
+
+            case R.id.sentMail:
+
+                Intent intent2 = new Intent(MainActivity.this, MailSender.class);
+                startActivity(intent2);
+
+                return true;
+
+                default:
+            return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -111,20 +267,25 @@ public class MainActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_devices) {
+        /*if (id == R.id.nav_devices) {
 
-            new FetchData().execute();
+
 
         } else if (id == R.id.nav_sensors) {
 
         } else if (id == R.id.nav_alarms) {
 
-        }
+        } else if (id == R.id.nav_task_management){
+
+
+
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     private class FetchData extends AsyncTask<Void, Void, String> {
 
@@ -139,7 +300,7 @@ public class MainActivity extends AppCompatActivity
 
             try {
 
-                URL url = new URL("http://192.168.8.203:8080/api/table.xml?content=devices&output=xml&columns=objid,probe,group,device,host,downsens,partialdownsens,downacksens,upsens,warnsens,pausedsens,unusualsens,undefinedsens&username=prtgadmin&password=prtgadmin");
+                URL url = new URL("http://192.168.8.203:8080/api/table.xml?content=devices&output=xml&columns=device&noraw=1&usecaption=true&username=prtgadmin&password=prtgadmin");
 
 
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -190,52 +351,52 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            ParseXML(s);
+
+            try {
+                ParseXML();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (XPathExpressionException e) {
+                e.printStackTrace();
+            }
+
 
         }
 
-        public void ParseXML(String xmlString) {
+        public void ParseXML() throws IOException, XPathExpressionException {
 
-            try {
+            /*String filename = "file2.xml";
 
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                factory.setNamespaceAware(true);
-                XmlPullParser parser = factory.newPullParser();
-                parser.setInput(new StringReader(xmlString));
-                int eventType = parser.getEventType();
+            FileOutputStream fos;
 
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-
-                    if (eventType == XmlPullParser.START_TAG) {
-
-                        String name = parser.getName();
-                        if (name.equals("device")) {
-
-                            String ref = parser.getAttributeValue(null, "ref");
-                            Log.d(LOG_TAG, "ref:" + ref);
-
-                            if (parser.next() == XmlPullParser.TEXT) {
-                                device.add(parser.getText());
-                                Log.d(LOG_TAG, "device:" + device);
-
-                                Intent intent1 = new Intent(MainActivity.this, DevicesActivity.class);
-                                intent1.putExtra(EXTRA_MESSAGE, device.get(0));
-                                startActivity(intent1);
-                            }
-                        }
-
-                    } else if (eventType == XmlPullParser.END_TAG) {
+            fos = openFileOutput(filename, Context.MODE_APPEND);
+            fos.close();*/
 
 
-                    }
-                    eventType = parser.next();
+            String[] a = getResources().getStringArray(R.array.devices);
+            for (int i = 0;i<a.length;i++) {
 
-                }
+                device.add(a[i]);
 
-
-            } catch (Exception e) {
-                Log.d(LOG_TAG, "Error in ParseXML()", e);
             }
+
+            /*XPath xPath = XPathFactory.newInstance().newXPath();
+
+            FileReader reader = new FileReader("file2.xml");
+            InputSource xml = new InputSource(reader);
+            NodeList titleNodes = (NodeList) xPath.evaluate("//item/device", xml, XPathConstants.NODESET);
+
+
+            for(int x=0; x<titleNodes.getLength(); x++) {
+
+                device.add(titleNodes.item(x).getTextContent());
+
+            }*/
+
+
+                Intent intent1 = new Intent(MainActivity.this, Devices.class);
+                intent1.putStringArrayListExtra("devices",device);
+                startActivity(intent1);
 
         }
 

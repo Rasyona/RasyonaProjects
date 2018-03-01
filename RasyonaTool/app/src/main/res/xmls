@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices totalcount="33" listend="1">
+    <prtg-version>17.4.33.3283</prtg-version>
+    <item>
+        <device>10.50.50.22 (BDB.boyner.trk)</device>
+    </item>
+    <item>
+        <device>192.168.8.10</device>
+    </item>
+    <item>
+        <device>192.168.8.11</device>
+    </item>
+    <item>
+        <device>192.168.8.2</device>
+    </item>
+    <item>
+        <device>192.168.8.205</device>
+    </item>
+    <item>
+        <device>192.168.8.40</device>
+    </item>
+    <item>
+        <device>Aymarka_AED</device>
+    </item>
+    <item>
+        <device>Aymarka_AED_Ping</device>
+    </item>
+    <item>
+        <device>Backup_Saprouter</device>
+    </item>
+    <item>
+        <device>beymen.com</device>
+    </item>
+    <item>
+        <device>Beymen_Portal</device>
+    </item>
+    <item>
+        <device>Beymen_Solman</device>
+    </item>
+    <item>
+        <device>bhexoem</device>
+    </item>
+    <item>
+        <device>Boyner_PO_DEV</device>
+    </item>
+    <item>
+        <device>bynrdw</device>
+    </item>
+    <item>
+        <device>DNS: bhdc01</device>
+    </item>
+    <item>
+        <device>DNS: google-public-dns-b</device>
+    </item>
+    <item>
+        <device>ExaData_Node1</device>
+    </item>
+    <item>
+        <device>ExaData_Node2</device>
+    </item>
+    <item>
+        <device>ExaData_Node3</device>
+    </item>
+    <item>
+        <device>ExaData_Node4</device>
+    </item>
+    <item>
+        <device>Gateway: 192.168.8.1</device>
+    </item>
+    <item>
+        <device>GECE_SERVER</device>
+    </item>
+    <item>
+        <device>HB WWW</device>
+    </item>
+    <item>
+        <device>HEPSIBURADA_SOLMAN</device>
+    </item>
+    <item>
+        <device>Internet</device>
+    </item>
+    <item>
+        <device>NPI08BA2F</device>
+    </item>
+    <item>
+        <device>onuryılmaz</device>
+    </item>
+    <item>
+        <device>Probe Device</device>
+    </item>
+    <item>
+        <device>Rasyona_Linux</device>
+    </item>
+    <item>
+        <device>Rasyona_Saprouter_3299</device>
+    </item>
+    <item>
+        <device>RASYONA_SERVER (Device)</device>
+    </item>
+    <item>
+        <device>RASYONAHD</device>
+    </item>
+</devices>

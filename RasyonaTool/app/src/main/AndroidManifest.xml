@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rasyona_egitim.rasyonatool">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +24,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DevicesActivity"></activity>
+        <activity android:name="com.example.rasyona_egitim.PRTG.Devices" />
+        <activity android:name=".ResimYukle" />
+        <activity android:name=".PdfYukle" />
+        <activity android:name=".UploadGoruntule" />
+        <activity android:name=".ExcelOlustur" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.Manipulation" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.NesneAyarlariniDegistirme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.DurdurmaDevamEttirme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ayarlarini_degistirme.NesneIsmiDegistir" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ayarlarini_degistirme.PriorityAyarla" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ayarlarini_degistirme.PropertyDegistir" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.durdurma_devam_ettirme.NesneDurdur" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.durdurma_devam_ettirme.BelirliSureDurdur" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.durdurma_devam_ettirme.NesneHataSimule" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.durdurma_devam_ettirme.NesneDevamEttir" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.HatayiKabulEtme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.OtoKesfetmeyiTetikleme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.oto_kesfetmeyi_tetikleme.SensorTara" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.oto_kesfetmeyi_tetikleme.OtoKesfet" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.NesneleriYenidenKonumlandirma" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.RaporaNesneEkleme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.BildirimiTestEtme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.NesneEklemeSilme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ekleme_silme.NesneEkleme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ekleme_silme.NesneSilme" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ekleme_silme.nesne_ekleme.GrupKopyala" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ekleme_silme.nesne_ekleme.CihazKopyala" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.nesne_ekleme_silme.nesne_ekleme.SensorKopyala" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.manipulation.LokasyonuAyarlama" />
+        <activity android:name="com.example.rasyona_egitim.PRTG.devices.Device1"></activity>
     </application>
 
 </manifest>

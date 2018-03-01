@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "25445741906",
+    "firebase_url": "https://rasyonatool.firebaseio.com",
+    "project_id": "rasyonatool",
+    "storage_bucket": "rasyonatool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25445741906:android:13388f085018f90a",
+        "android_client_info": {
+          "package_name": "com.example.rasyona_egitim.rasyonatool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25445741906-45765iaid7cifffga2uqp2otrvfigf9g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rasyona_egitim.rasyonatool",
+            "certificate_hash": "281953f24aacd5ef753dede3f3e4837ff7d31fc7"
+          }
+        },
+        {
+          "client_id": "25445741906-ujpavms0ke4kpkfik9s2m3ts1el5gohr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-3r8cWJ7Jk4fr_ELeElgHU_Oj8w2zzsg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25445741906-ujpavms0ke4kpkfik9s2m3ts1el5gohr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

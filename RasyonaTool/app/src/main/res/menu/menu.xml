@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/anaSayfaButonu"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="Ana Sayfaya Dön"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/gorevEklemeButonu"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Görev Ekle"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/yenile"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:title="Görev Sil"
+        app:showAsAction="always" />
+</menu>
